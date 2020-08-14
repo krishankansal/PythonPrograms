@@ -1,0 +1,32 @@
+Types of methods:
+--------------------
+1. instance methods
+2. class methods
+3. static methods
+
+1. If we are using atleast one instance variable- Instance methods.
+2. If we are using only static variables but not instance variable - class methods.
+3. If we are not using any instance or static variable - static methods
+    static methods are general utility methods.
+
+1. How to declare instance method.
+def m1(self):
+    self.x
+
+2. class method
+@classmethod
+def m2(cls):
+    cls.x
+    Test.x
+
+3. static methods are general utility methods 
+@staticmethod
+def add(x,y):
+      print(x+y)
+Not using any instance or static variable
+
+
+
+
+
+

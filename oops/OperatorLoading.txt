@@ -1,0 +1,74 @@
+Polymorphism
+----------------
+Duck Typing Phylosophy of pyhton
+Overloading
+    Operator Overloading
+    Method Overloading
+    Constructor Overloading
+Overriding
+    Mehod Overriding
+    Constructor Overloading
+
+Polymorphism(Poly means many,morphs means forms)
+------------
+One name but many forms
+
+Operator Overloading
+---------------------
+In computer programming, operator overloading, sometimes termed operator 
+ad hoc polymorphism, is a specific case of polymorphism, where different 
+operators have different implementations depending on their arguments. 
++
+*
+<,<=,>,>=
+
+Example
+-----------------
+class Book:
+    def __init__(self, pages):
+        self.pages = pages
+
+b1 = Book(100)
+b2 = Book(200)
+
+print(b1 + b2)
+*******************************
+Output:
+TypeError: unsupported operand type(s) for +: 'Book' and 'Book'
+
+OPERATOR	MAGIC METHOD
+-----------------------------
+
+Binary Operators:
++	__add__(self, other)
+–	__sub__(self, other)
+*	__mul__(self, other)
+/	__truediv__(self, other)
+//	__floordiv__(self, other)
+%	__mod__(self, other)
+**	__pow__(self, other)
+
+Comparison Operators :
+<	__lt__(self, other)
+>	__gt__(self, other)
+<=	__le__(self, other)
+>=	__ge__(self, other)
+==	__eq__(self, other)
+!=	__ne__(self, other)
+
+Assignment Operators :
+-=	__isub__(self, other)
++=	__iadd__(self, other)
+*=	__imul__(self, other)
+/=	__idiv__(self, other)
+//=	__ifloordiv__(self, other)
+%=	__imod__(self, other)
+**=	__ipow__(self, other)
+
+Unary Operators :
+–	__neg__(self, other)
++	__pos__(self, other)
+~	__invert__(self, other)
+------------------------------
+
+

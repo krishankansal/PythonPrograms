@@ -1,0 +1,41 @@
+Is-A vs Has-A Relationships
+-----------------------------
+Has-A[Means Association]
+
+Association[Composition or Aggregation]
+
+1. Composition[Strong Association]
+-----------------------------------
+    eg. University --> Department
+University Has-A Department but strong Association
+
+2. Aggregation[Weak Association]
+---------------------------------
+    eg. Department --> Professor
+Department Has-A Professor but Weak Association
+
+Department here is container object[Department/container]
+Professor is contained object[Professor/contained]
+No chance of existing Professor without Department
+
+Types of Inheritance
+-----------------------
+Single Inheritance
+Multi level Inheritance
+Hierarchical Inheritance
+Multiple Inheritance
+Hybrid Inheritance
+Cyclic Inheritance[Not supported in python, Java]
+
+Cyclic Inheritance
+-------------------
+Example 1:
+
+class A(A): pass
+
+Example 2:
+
+class A(B): pass
+class B(A): pass
+
+

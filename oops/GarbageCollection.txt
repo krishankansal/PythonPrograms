@@ -1,0 +1,88 @@
+Garbage Collector
+----------------
+
+gc module
+
+1. gc.isenabled()
+2. gc.disable()
+3. gc.enable()
+
+Example 1
+-----------
+import gc
+
+print(gc.isenabled())
+gc.disable()
+print(gc.isenabled())
+gc.enable()
+print(gc.isenabled())
+********************************
+
+Output
+---------------
+True
+False
+True
+
+constructor
+-------------
+__init__(self)
+
+destructor
+-----------
+__del__(self)
+
+Just before destroying an object, GC always calls destructor to perform cleanup activities.
+
+garbage collector is a daemon thread.
+
+
+Who is calling destructor
+destructor : when it is called
+for which purpore
+
+Example 2
+------------------
+class Test:
+	def __init__(self):
+		print('Object initialization...')	
+		
+	def __del__(self):
+		print('Performing cleanup.....')
+		
+t = Test()
+************************************
+Output
+----------
+Object initialization...
+Performing cleanup.....
+
+Case 1
+---------
+t = Test()
+t1 = Test()
+t1 = None
+t2 = Test()
+Output
+------------
+Object initialization...
+Object initialization...
+Performing cleanup.....
+Object initialization...
+Performing cleanup.....
+Performing cleanup.....
+
+Case 2
+-----------
+t = Test()
+time.sleep(10)
+print('End of application')
+Output
+------------
+Object initialization...
+End of application
+Performing cleanup.....
+
+
+
+

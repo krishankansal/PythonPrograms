@@ -1,0 +1,128 @@
+There are three types of methods in Python: 
+1. instance methods 
+2. class methods
+3. static methods
+
+
+class MyClass:
+    
+    # 1.
+    def method(self):
+        return 'instance method called', self
+
+    # 2.
+    @classmethod
+    def classmethod(cls):
+        return 'class method called', cls
+    
+    # 3.
+    @staticmethod
+    def staticmethod():
+        return 'static method called'
+
+print(MyClass().method())
+print(MyClass.classmethod())
+print(MyClass.staticmethod())
+print(MyClass().classmethod())
+print(MyClass().staticmethod())
+
+Output : 
+-------------------------------------
+('instance method called', <__main__.MyClass object at 0x7f0a52ce7310>)
+('class method called', <class '__main__.MyClass'>)
+static method called
+('class method called', <class '__main__.MyClass'>)
+static method called
+************************************************************************
+
+We can also use
+------------------
+print(MyClass().__class__.)
+print(MyClass().__class__.classmethod())
+Output
+---------
+<class '__main__.MyClass'>
+('class method called', <class '__main__.MyClass'>)
+
+Instance Methods
+-----------------------------------
+The first method on MyClass, called method, is a regular instance method.
+method takes one parameter, self, which points to an instance of MyClass 
+when the method is called (but of course instance methods can accept more than just one parameter).
+Not only can they modify object state, instance methods can also access the class itself through the 
+self.__class__ attribute. This means instance methods can also modify class state.
+
+A built-in example of an instance method is str.upper():
+>>> "welcome".upper()   # <- called on the str object
+'WELCOME'
+
+
+
+Class Methods
+----------------------
+second method, MyClass.classmethod. I marked this method with a @classmethod decorator to flag it as a class method.
+Instead of accepting a self parameter, class methods take a cls parameter that points to the class—and not the 
+object instance—when the method is called.
+
+Because the class method only has access to this cls argument, it can’t modify object instance state. 
+That would require access to self. However, class methods can still modify class state that applies across all instances of the class.
+
+A builtin example is dict.fromkeys() which returns a new dictionary with a given sequence of elements as the keys of the dictionary.
+
+dict.fromkeys('AEIOU')  # <- called using dict class
+{'A': None, 'E': None, 'I': None, 'O': None, 'U': None}
+
+
+
+
+Static Methods
+-----------------------------
+The third method, MyClass.staticmethod was marked with a @staticmethod decorator to flag it as a static method.
+
+This type of method takes neither a self nor a cls parameter (but of course it’s free to accept an arbitrary 
+number of other parameters).
+
+Therefore a static method can neither modify object state nor class state. Static methods are restricted in 
+what data they can access 
+- and they’re primarily a way to namespace your methods.
+
+The main characteristic of a static method is that they can be called without instantiating the class. 
+These methods are self-contained.
+
+
+
+When to use each method type?
+---------------------------------------------
+It may seem tough and daunting decision choosing between the types of methods in Python, 
+but will get the hang of it with a bit of practice.
+
+We generally use the class methods to create factory methods which returns the class object for a different use case. 
+
+Static methods however are primarily used to create utility function and work on data provided to them in arguments.
+
+Things to remember
+-----------------------
+Instance methods can access the instance through self as well as the class via self.__class__ attribute.
+Class methods can’t access the instance (self) but they have access to the class itself via cls.
+Static Methods work like regular functions but belong to the class’s namespace. 
+Static methods don’t have access to cls or self.
+
+
+Example
+----------------------
+class Animal:
+
+    legs = 4
+
+    @classmethod
+    def walk(cls, name):
+        print(f'{name} walks with {cls.legs} legs')
+
+Animal.walk('Dog')
+Animal.walk('Cat')
+
+Output:
+-----------------------
+Dog walks with 4 legs
+Cat walks with 4 legs
+************************************************

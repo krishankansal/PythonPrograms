@@ -1,0 +1,46 @@
+Types of methods:
+-------------------
+1. Instance methods
+2. class methods
+3. static methods
+
+Instance methods:
+--------------------
+def(self):
+    we are using instance variables
+
+How can we use instance variables:
+----------------------------------
+Inside methods by using self
+Outside the class by using object refrence
+
+setter and getter methods:
+---------------------------
+def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+s = Student('Ramesh',40)
+s = Student()
+s.setName('Ramesh')
+s.setMarks(40)
+print('Student Name ', s.getName())
+
+these are not buildin methods, we have to define them.
+
+definition(setter method)
+-----------
+def setVariableName(self, VariableName)
+    self.VariableName = VariableName
+
+so,
+
+def setMarks(self, marks):
+    self.marks = marks
+
+definition(getter method)
+-------------------------
+def getMarks(self):
+    return self.marks
+
+Hiding data behind methods ====> Encapsulation

@@ -1,0 +1,78 @@
+Inner Class
+---------------
+1. class which is declared inside another class.
+
+When to use Inner Class
+------------------------
+1. If one object existance if fully dependent on whether other object exist or not. i.e object can't exist alone.
+
+Example
+----------
+Man 	Brain
+
+Ex-1
+class Man:
+	.........
+	class Brain:
+		..........
+
+Man(Outer class) 	Brain(Inner class)
+
+Ex-2
+class University
+	.............
+	class Department
+		.............
+		
+Without existing outer class object there is no chance of existing inner class object. Inner class object is always associated with outer class  object.
+
+d = University().Department()
+
+Example 1:
+-------------
+class Outer:	
+	def __init__(self):
+		print("Outer class constructor")
+		
+	def m2(self):
+			print("Outer class method m2()")
+		
+	class Inner:	
+		def __init__(self):
+			print("Inner class constructor")			
+			
+		def m1(self):
+			print("Inner class method m1()")
+
+***********************************************
+Case 1:
+-------
+i = Outer().Inner()
+i. m1()
+Output
+-------
+Outer class constructor
+Inner class constructor
+Inner class method m1()
+
+Case 2:
+----------
+i = Outer().Inner()
+i.m2()
+
+Output
+-------
+AttributeError: 'Inner' object has no attribute 'm2'
+
+
+
+
+
+
+
+
+
+		
+
+
+
